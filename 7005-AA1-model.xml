@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?><_ROOT_ EMVERSION="15.2" ORIENTATION="HORIZONTAL">
+<Workspace>
+<NODES>
+<NODE CLASS="SASHELP.EMCORE.EXTENSION.CLASS" COMPONENT="Boost" ID="Boost" X="407" Y="265" DESCRIPTION="Gradient Boosting" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="MODEL" TOOLPREFIX="Boost">
+<PROPERTIES Location="CATALOG" Catalog="SASHELP.EMMODL.BOOST.SOURCE" ToolType="MODEL" Iterations="50" CategoricalBins="30" IntervalBins="100" TrainProportion="60" Seed="12345" Shrinkage="0.1" LeafFraction="0.001" SplitSize="." MinCatSize="5" MaxBranch="2" MaxDepth="2" NSurrs="0" Missing="USEINSEARCH" Huber="NO" ReUseVar="1" AssessMeasure="PROFIT" NodeSize="20000" Exhaustive="5000" VarSelection="Y" Performance="DISK" SubSeries="BEST" IterationNum="1" ObsImportance="N" NumSingleImp="5" CreateHStat="N" ForceRun="N" RunAction="Train" Component="Boost" Precision="0" Measure="PROFIT" NumPairImp="0" DataNeeded="Y">
+<VariableProperties/>
+<EmVariableAttributes/>
+<EmTargetAttributes>
+<Churn>
+<DecData Table="EMWS1.Boost_Churn_DD">
+<Data>
+<Obs CHURN="1" COUNT="102" DATAPRIOR="0.5" TRAINPRIOR="0.5" DECPRIOR="." DECISION1="1" DECISION2="0"/>
+<Obs CHURN="0" COUNT="102" DATAPRIOR="0.5" TRAINPRIOR="0.5" DECPRIOR="." DECISION1="0" DECISION2="1"/>
+</Data>
+<Metadata>
+<Variable NAME="Churn" LABEL="" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="COUNT" LABEL="Level Counts" LENGTH="8" FORMAT="10." TYPE="N"/>
+<Variable NAME="DATAPRIOR" LABEL="Data Proportions" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="TRAINPRIOR" LABEL="Training Proportions" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="DECPRIOR" LABEL="Decision Priors" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="DECISION1" LABEL="1" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="DECISION2" LABEL="0" LENGTH="8" FORMAT="" TYPE="N"/>
+</Metadata>
+</DecData>
+<DecMeta Table="EMWS1.Boost_Churn_DM">
+<Data>
+<Obs _TYPE_="MATRIX" VARIABLE="" LABEL="" LEVEL="PROFIT" EVENT="" ORDER="" FORMAT="" TYPE="" COST="" USE="N"/>
+<Obs _TYPE_="TARGET" VARIABLE="Churn" LABEL="" LEVEL="BINARY" EVENT="1" ORDER="" FORMAT="BEST12.0" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="DECISION" VARIABLE="DECISION1" LABEL="1" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE="Y"/>
+<Obs _TYPE_="DECISION" VARIABLE="DECISION2" LABEL="0" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE="Y"/>
+<Obs _TYPE_="DATAPRIOR" VARIABLE="DATAPRIOR" LABEL="Data Prior" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE="N"/>
+<Obs _TYPE_="TRAINPRIOR" VARIABLE="TRAINPRIOR" LABEL="Training Prior" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE="N"/>
+<Obs _TYPE_="DECPRIOR" VARIABLE="DECPRIOR" LABEL="Decision Prior" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE="N"/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_Churn1" LABEL="Predicted: Churn=1" LEVEL="1" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_Churn1" LABEL="Residual: Churn=1" LEVEL="1" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_Churn0" LABEL="Predicted: Churn=0" LEVEL="0" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_Churn0" LABEL="Residual: Churn=0" LEVEL="0" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="FROM" VARIABLE="F_Churn" LABEL="From: Churn" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="C" COST="" USE=""/>
+<Obs _TYPE_="INTO" VARIABLE="I_Churn" LABEL="Into: Churn" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="C" COST="" USE=""/>
+</Data>
+<Metadata>
+<Variable NAME="_TYPE_" LABEL="Type" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="VARIABLE" LABEL="Variable" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="LABEL" LABEL="Label" LENGTH="256" FORMAT="" TYPE="C"/>
+<Variable NAME="LEVEL" LABEL="Measurement Level" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="EVENT" LABEL="Target Event" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="ORDER" LABEL="Order" LENGTH="10" FORMAT="" TYPE="C"/>
+<Variable NAME="FORMAT" LABEL="Format" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="TYPE" LABEL="Type" LENGTH="1" FORMAT="" TYPE="C"/>
+<Variable NAME="COST" LABEL="Cost" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="USE" LABEL="Use" LENGTH="1" FORMAT="" TYPE="C"/>
+</Metadata>
+</DecMeta>
+</Churn>
+</EmTargetAttributes>
+<EmFileProperties>
+<USERTRAINCODE Type="EXTERNAL" Extension="sas">
+<Data/>
+</USERTRAINCODE>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMUTIL.CONTROLPOINT.CLASS" COMPONENT="ControlPoint" ID="CNTRL" X="209" Y="158" DESCRIPTION="Control Point" DIAGRAMID="_ROOT_" PARENTID="">
+<PROPERTIES/>
+</NODE>
+<NODE CLASS="SASHELP.EMMDFY.EMDROP.CLASS" COMPONENT="Drop" ID="Drop" X="395" Y="36" DESCRIPTION="Drop" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="MODIFY" TOOLPREFIX="Drop">
+<PROPERTIES DropFromTable="Y" DropHidden="Y" DropInput="N" DropTarget="N" DropRejected="Y" DropAssess="N" DropPredict="N" DropFreq="N" DropClassification="N" DropResidual="N" DropOther="N" ForceRun="N" RunAction="Train" Component="Drop">
+<VariableProperties/>
+<EmTargetAttributes/>
+<EmVariableAttributes>
+<DELTA Variable="City" AttributeName="DROP" AttributeValue="Y"/>
+<DELTA Variable="CustomerID" AttributeName="DROP" AttributeValue="Y"/>
+<DELTA Variable="DaysSinceLastPurchase" AttributeName="DROP" AttributeValue="Y"/>
+<DELTA Variable="MembershipType" AttributeName="LEVEL" AttributeValue="NOMINAL"/>
+</EmVariableAttributes>
+<EmFileProperties>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMCORE.EXTENSION.CLASS" COMPONENT="FileImport" ID="FIMPORT" X="24" Y="36" DESCRIPTION="File Import" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="SAMPLE" TOOLPREFIX="FIMPORT">
+<PROPERTIES Location="CATALOG" Catalog="SASHELP.EMSAMP.Fimport.SOURCE" ImportType="Local" GuessRows="500" Delimiter="," NameRow="Y" SkipRows="0" MaxRows="1000000" MaxCols="10000" FileType="csv" Role="TRAIN" ForceRun="N" Summarize="N" AdvancedAdvisor="N" RunAction="Train" Component="FileImport" IFileName="D:\dataset\e-commerce.csv" AccessTable="NoTableName" UserID="NoUserID" Password="NoPassword">
+<VariableProperties/>
+<EmVariableAttributes>
+<DELTA Variable="Churn" AttributeName="ROLE" AttributeValue="TARGET"/>
+<DELTA Variable="Churn" AttributeName="LEVEL" AttributeValue="BINARY"/>
+<DELTA Variable="CustomerID" AttributeName="ROLE" AttributeValue="ID"/>
+<DELTA Variable="DiscountApplied" AttributeName="LEVEL" AttributeValue="BINARY"/>
+<DELTA Variable="Gender" AttributeName="LEVEL" AttributeValue="BINARY"/>
+<DELTA Variable="MembershipType" AttributeName="LEVEL" AttributeValue="ORDINAL"/>
+</EmVariableAttributes>
+<EmTargetAttributes/>
+<EmFileProperties>
+<USERTRAINCODE Type="EXTERNAL" Extension="sas">
+<Data/>
+</USERTRAINCODE>
+<VARIABLESETDELTA Type="EXTERNAL" Extension="txt">
+<Data><![CDATA[
+if NAME=&quot;Churn&quot; then do;
+ROLE=&quot;TARGET&quot;;
+LEVEL=&quot;BINARY&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;CustomerID&quot; then do;
+ROLE=&quot;ID&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;DiscountApplied&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;BINARY&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;Gender&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;BINARY&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+if NAME=&quot;MembershipType&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;ORDINAL&quot;;
+ORDER=&quot;&quot;;
+DROP=&quot;N&quot;;
+end;
+]]>
+</Data>
+</VARIABLESETDELTA>
+<DELTACODE Type="EXTERNAL" Extension="txt">
+<Data><![CDATA[
+if NAME=&quot;Churn&quot; then do;
+ROLE=&quot;TARGET&quot;;
+LEVEL=&quot;BINARY&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;CustomerID&quot; then do;
+ROLE=&quot;ID&quot;;
+LEVEL=&quot;INTERVAL&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;DiscountApplied&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;BINARY&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;Gender&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;BINARY&quot;;
+ORDER=&quot;&quot;;
+end;
+if NAME=&quot;MembershipType&quot; then do;
+ROLE=&quot;INPUT&quot;;
+LEVEL=&quot;ORDINAL&quot;;
+ORDER=&quot;&quot;;
+end;
+drop DROP;
+]]>
+</Data>
+</DELTACODE>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMMDFY.EMIMPUTE.CLASS" COMPONENT="Impute" ID="Impt" X="596" Y="34" DESCRIPTION="Impute" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="MODIFY" TOOLPREFIX="Impt">
+<PROPERTIES MethodInterval="MEDIAN" MethodClass="COUNT" MethodTargetInterval="NONE" MethodTargetClass="NONE" ABWTuning="9" AHUBERTuning="1.5" AWAVETuning="6.2831853072" SpacingProportion="90" DefaultChar="" DefaultNum="." RandomSeed="12345" Normalize="Y" ImputeNoMissing="N" MaxPctMissing="50" ValidateTestMissing="N" DistributionMissing="N" LeafSize="5" Maxbranch="2" Maxdepth="6" MinCatSize="5" Nrules="5" Nsurrs="2" Splitsize="." Indicator="NONE" IndicatorRole="REJECTED" ReplaceVariable="N" HideVariable="Y" IndicatorSource="IMPUTED" ForceRun="N" RunAction="Train" Component="Impute">
+<VariableProperties/>
+<EmTargetAttributes/>
+<EmVariableAttributes>
+<DELTA Variable="Age" AttributeName="USE" AttributeValue="N"/>
+</EmVariableAttributes>
+<EmFileProperties>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMASSMT.ASSESS.CLASS" COMPONENT="ModelCompare" ID="MdlComp" X="609" Y="158" DESCRIPTION="Model Comparison" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="ASSESS" TOOLPREFIX="MdlComp">
+<PROPERTIES NumberOfReportedLevels="1E-6" NormalizeReportingVariables="Y" DecileBin="20" LiftEpsilon="1E-6" ProfitEpsilon="1E-6" RoiEpsilon="1E-6" ScoreDistBin="20" RocChart="Y" RocEpsilon="0.01" AssessAllTargetLevels="N" SelectionData="DEFAULT" HPCriteria="_MISC_" intervalViyaCriteria="DEFAULT" classViyaCriteria="DEFAULT" SelectionTable="TRAIN" SelectionCriteria="_MISC_" SelectionDepth="10" NumberofBins="20" RecomputeAssess="N" TargetName="Churn" ModelId="Boost" ModelDescription="Gradient Boosting" ModelCriteria="Train: Misclassification Rate" ForceRun="N" RunAction="Train" Component="ModelCompare" StatisticUsed="_MISC_" TargetLabel="">
+<VariableProperties/>
+<EmVariableAttributes/>
+<EmTargetAttributes/>
+<EmFileProperties>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMSAMP.EMDPART.CLASS" COMPONENT="Partition" ID="Part" X="21" Y="158" DESCRIPTION="Data Partition" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="SAMPLE" TOOLPREFIX="Part">
+<PROPERTIES Method="DEFAULT" TrainPct="70" ValidatePct="30" TestPct="0" RandomSeed="12345" OutputType="DATA" IntervalDistribution="Y" ClassDistribution="Y" ForceRun="N" RunAction="Train" Component="Partition">
+<VariableProperties/>
+<EmVariableAttributes/>
+<EmTargetAttributes/>
+<EmFileProperties>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMCORE.EXTENSION.CLASS" COMPONENT="Replace" ID="Repl" X="202" Y="37" DESCRIPTION="Replacement" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="MODIFY" TOOLPREFIX="Repl">
+<PROPERTIES Location="CATALOG" Catalog="SASHELP.EMMDFY.REPLACE.SOURCE" HideVariable="N" UnknownLevel="NONE" ReplaceMethod="COMPUTED" CalcMethod="NONE" MADSCutoff="9.0" SpacingsCutoff="9.0" StddevCutoff="3.0" PercentsCutoff="0.5" CountReport="Y" ForceRun="N" RunAction="Train" Component="Replace" IntervalMethod="NONE" DataNeeded="Y">
+<VariableProperties/>
+<EmTargetAttributes/>
+<EmVariableAttributes>
+<DELTA Variable="Age" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="AverageRating" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="Churn" AttributeName="CALCMETHOD" AttributeValue="DEFAULT"/>
+<DELTA Variable="DaysSinceLastPurchase" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="ItemPurchased" AttributeName="USE" AttributeValue="N"/>
+<DELTA Variable="TotalSpend" AttributeName="USE" AttributeValue="N"/>
+</EmVariableAttributes>
+<EmFileProperties>
+<USERTRAINCODE Type="EXTERNAL" Extension="sas">
+<Data/>
+</USERTRAINCODE>
+<NEWVALUES Type="DATA">
+<Data>
+<Obs NAME="Churn" LEVEL="_UNKNOWN_" TYPE="N" REPLACE_VALUE="_DEFAULT_"/>
+<Obs NAME="City" LEVEL="Los Angeles" TYPE="C" REPLACE_VALUE="0"/>
+<Obs NAME="City" LEVEL="New York" TYPE="C" REPLACE_VALUE="1"/>
+<Obs NAME="City" LEVEL="Chicago" TYPE="C" REPLACE_VALUE="2"/>
+<Obs NAME="City" LEVEL="Houston" TYPE="C" REPLACE_VALUE="3"/>
+<Obs NAME="City" LEVEL="Miami" TYPE="C" REPLACE_VALUE="4"/>
+<Obs NAME="City" LEVEL="San Francisco" TYPE="C" REPLACE_VALUE="5"/>
+<Obs NAME="City" LEVEL="_UNKNOWN_" TYPE="C" REPLACE_VALUE="_DEFAULT_"/>
+<Obs NAME="DiscountApplied" LEVEL="FALSE" TYPE="C" REPLACE_VALUE="0"/>
+<Obs NAME="DiscountApplied" LEVEL="TRUE" TYPE="C" REPLACE_VALUE="1"/>
+<Obs NAME="DiscountApplied" LEVEL="_UNKNOWN_" TYPE="C" REPLACE_VALUE="_DEFAULT_"/>
+<Obs NAME="Gender" LEVEL="Female" TYPE="C" REPLACE_VALUE="1"/>
+<Obs NAME="Gender" LEVEL="Male" TYPE="C" REPLACE_VALUE="0"/>
+<Obs NAME="Gender" LEVEL="_UNKNOWN_" TYPE="C" REPLACE_VALUE="_DEFAULT_"/>
+<Obs NAME="MembershipType" LEVEL="Gold" TYPE="C" REPLACE_VALUE="0"/>
+<Obs NAME="MembershipType" LEVEL="Silver" TYPE="C" REPLACE_VALUE="1"/>
+<Obs NAME="MembershipType" LEVEL="Bronze" TYPE="C" REPLACE_VALUE="2"/>
+<Obs NAME="MembershipType" LEVEL="_UNKNOWN_" TYPE="C" REPLACE_VALUE="_DEFAULT_"/>
+<Obs NAME="SatisfactionLevel" LEVEL="Satisfied" TYPE="C" REPLACE_VALUE="0"/>
+<Obs NAME="SatisfactionLevel" LEVEL="Unsatisfied" TYPE="C" REPLACE_VALUE="1"/>
+<Obs NAME="SatisfactionLevel" LEVEL="Neutral" TYPE="C" REPLACE_VALUE="2"/>
+<Obs NAME="SatisfactionLevel" LEVEL="_UNKNOWN_" TYPE="C" REPLACE_VALUE="_DEFAULT_"/>
+</Data>
+<Metadata>
+<Variable NAME="Name" LABEL="Variable" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="LEVEL" LABEL="Formatted Value" LENGTH="13" FORMAT="" TYPE="C"/>
+<Variable NAME="TYPE" LABEL="Type" LENGTH="1" FORMAT="" TYPE="C"/>
+<Variable NAME="REPLACE_VALUE" LABEL="Replacement Value" LENGTH="200" FORMAT="" TYPE="C"/>
+</Metadata>
+</NEWVALUES>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMSAMP.SAMPLING.CLASS" COMPONENT="Sample" ID="Smpl2" X="790" Y="32" DESCRIPTION="Sample" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="SAMPLE" TOOLPREFIX="Smpl">
+<PROPERTIES Method="DEFAULT" SizeType="PERCENT" SizePercent="85" SizeObs="." RandomSeed="12345" Alpha="0.01" Pvalue="0.01" AdjustFreq="N" FreqMiss="N" FreqCount="N" StratifyCriterion="EQUAL" MinStrataSize="5" IgnoreSmallStrata="N" ClusterMethod="RANDOM" LevelProportion="100" LevelSampleProportion="50" LevelSelection="EVENT" OutputType="DATA" IntervalDistribution="Y" ClassDistribution="Y" ForceRun="N" RunAction="Train" Component="Sample">
+<VariableProperties/>
+<EmVariableAttributes/>
+<EmTargetAttributes/>
+<EmFileProperties>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+<NODE CLASS="SASHELP.EMCORE.EXTENSION.CLASS" COMPONENT="DecisionTree" ID="Tree" X="407" Y="158" DESCRIPTION="Decision Tree" DIAGRAMID="_ROOT_" PARENTID="" TOOLTYPE="MODEL" TOOLPREFIX="Tree">
+<PROPERTIES Location="CATALOG" Catalog="SASHELP.EMMODL.TREE.SOURCE" ToolType="MODEL" TrainMode="BATCH" ImportModel="N" Freeze="N" UseMultipleTarget="N" Precision="4" IntervalCriterion="VARIANCE" NominalCriterion="GINI" OrdinalCriterion="GINI" SigLevel="0.2" Splitsize="." LeafSize="5" MinCatSize="5" Maxbranch="2" Maxdepth="6" Nrules="5" Nsurrs="0" MissingValue="USEINSEARCH" UseVarOnce="N" SplitPrecision="4" Subtree="ASSESSMENT" NSubtree="1" AssessMeasure="PROFIT/LOSS" AssessPercentage="0.25" NodeSample="20000" Exhaustive="5000" Kass="Y" KassApply="BEFORE" Depth="Y" Inputs="N" NumInputs="1" VarSelection="Y" Leafid="Y" NodeRole="SEGMENT" Performance="DISK" CV="N" CVNIter="10" CVRepeat="1" CVSeed="12345" ObsImportance="N" NumSingleImp="5" UseDecision="N" UsePriors="N" ClassColorBy="PERCENTCORRECT" IntColorBy="AVG" ShowNodeId="Y" ShowValid="Y" Pred="N" Target="ALL" Count="Y" ProfitLoss="NONE" PercentCorrect="N" AVG="Y" RASE="N" CreateSample="DEFAULT" SampleMethod="RANDOM" SampleSize="10000" SampleSeed="12345" ForceRun="N" RunAction="Train" Component="DecisionTree" Criterion="DEFAULT" Dummy="N" Predict="Y" ImportedTreeData="">
+<VariableProperties/>
+<EmVariableAttributes/>
+<EmTargetAttributes>
+<Churn>
+<DecData Table="EMWS1.Tree_Churn_DD">
+<Data>
+<Obs CHURN="1" COUNT="102" DATAPRIOR="0.5" TRAINPRIOR="0.5" DECPRIOR="." DECISION1="1" DECISION2="0"/>
+<Obs CHURN="0" COUNT="102" DATAPRIOR="0.5" TRAINPRIOR="0.5" DECPRIOR="." DECISION1="0" DECISION2="1"/>
+</Data>
+<Metadata>
+<Variable NAME="Churn" LABEL="" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="COUNT" LABEL="Level Counts" LENGTH="8" FORMAT="10." TYPE="N"/>
+<Variable NAME="DATAPRIOR" LABEL="Data Proportions" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="TRAINPRIOR" LABEL="Training Proportions" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="DECPRIOR" LABEL="Decision Priors" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="DECISION1" LABEL="1" LENGTH="8" FORMAT="" TYPE="N"/>
+<Variable NAME="DECISION2" LABEL="0" LENGTH="8" FORMAT="" TYPE="N"/>
+</Metadata>
+</DecData>
+<DecMeta Table="EMWS1.Tree_Churn_DM">
+<Data>
+<Obs _TYPE_="MATRIX" VARIABLE="" LABEL="" LEVEL="PROFIT" EVENT="" ORDER="" FORMAT="" TYPE="" COST="" USE="N"/>
+<Obs _TYPE_="TARGET" VARIABLE="Churn" LABEL="" LEVEL="BINARY" EVENT="1" ORDER="" FORMAT="BEST12.0" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="DECISION" VARIABLE="DECISION1" LABEL="1" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE="Y"/>
+<Obs _TYPE_="DECISION" VARIABLE="DECISION2" LABEL="0" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE="Y"/>
+<Obs _TYPE_="DATAPRIOR" VARIABLE="DATAPRIOR" LABEL="Data Prior" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE="N"/>
+<Obs _TYPE_="TRAINPRIOR" VARIABLE="TRAINPRIOR" LABEL="Training Prior" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE="N"/>
+<Obs _TYPE_="DECPRIOR" VARIABLE="DECPRIOR" LABEL="Decision Prior" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE="N"/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_Churn1" LABEL="Predicted: Churn=1" LEVEL="1" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_Churn1" LABEL="Residual: Churn=1" LEVEL="1" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="PREDICTED" VARIABLE="P_Churn0" LABEL="Predicted: Churn=0" LEVEL="0" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="RESIDUAL" VARIABLE="R_Churn0" LABEL="Residual: Churn=0" LEVEL="0" EVENT="" ORDER="" FORMAT="" TYPE="N" COST="" USE=""/>
+<Obs _TYPE_="FROM" VARIABLE="F_Churn" LABEL="From: Churn" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="C" COST="" USE=""/>
+<Obs _TYPE_="INTO" VARIABLE="I_Churn" LABEL="Into: Churn" LEVEL="" EVENT="" ORDER="" FORMAT="" TYPE="C" COST="" USE=""/>
+</Data>
+<Metadata>
+<Variable NAME="_TYPE_" LABEL="Type" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="VARIABLE" LABEL="Variable" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="LABEL" LABEL="Label" LENGTH="256" FORMAT="" TYPE="C"/>
+<Variable NAME="LEVEL" LABEL="Measurement Level" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="EVENT" LABEL="Target Event" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="ORDER" LABEL="Order" LENGTH="10" FORMAT="" TYPE="C"/>
+<Variable NAME="FORMAT" LABEL="Format" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="TYPE" LABEL="Type" LENGTH="1" FORMAT="" TYPE="C"/>
+<Variable NAME="COST" LABEL="Cost" LENGTH="32" FORMAT="" TYPE="C"/>
+<Variable NAME="USE" LABEL="Use" LENGTH="1" FORMAT="" TYPE="C"/>
+</Metadata>
+</DecMeta>
+</Churn>
+</EmTargetAttributes>
+<EmFileProperties>
+<USERTRAINCODE Type="EXTERNAL" Extension="sas">
+<Data/>
+</USERTRAINCODE>
+<EMNOTES Type="EXTERNAL" Extension="txt">
+<Data/>
+</EMNOTES>
+</EmFileProperties>
+</PROPERTIES>
+</NODE>
+</NODES>
+<CONNECTIONS>
+<CONNECTION FROM="Smpl2" TO="Part"/>
+<CONNECTION FROM="Part" TO="CNTRL"/>
+<CONNECTION FROM="CNTRL" TO="Boost"/>
+<CONNECTION FROM="CNTRL" TO="Tree"/>
+<CONNECTION FROM="Tree" TO="MdlComp"/>
+<CONNECTION FROM="Boost" TO="MdlComp"/>
+<CONNECTION FROM="Drop" TO="Impt"/>
+<CONNECTION FROM="Impt" TO="Smpl2"/>
+<CONNECTION FROM="Repl" TO="Drop"/>
+<CONNECTION FROM="FIMPORT" TO="Repl"/>
+</CONNECTIONS>
+<NOTES>
+<DATA><![CDATA[
+
+]]>
+</DATA>
+</NOTES>
+</Workspace>
+</_ROOT_>
